@@ -36,36 +36,18 @@ print("---------------------")
 print(clf_report)
 print("_____________________")
 
-# joblib.dump(rfc,"cancer_model.pkl")
 
-# Plot the dependency of the accuracy on the number of trees
-import matplotlib.pyplot as plt
-from sklearn.model_selection import validation_curve
-param_range = np.arange(1, 250, 2)
-train_scores, test_scores = validation_curve(
-    RandomForestClassifier(), X, y, param_name="n_estimators", param_range=param_range,
-    cv=3, scoring="accuracy", n_jobs=1)
-train_mean = np.mean(train_scores, axis=1)
-train_std = np.std(train_scores, axis=1)
-test_mean = np.mean(test_scores, axis=1)
-test_std = np.std(test_scores, axis=1)
-plt.title("Validation Curve with Random Forest")
-plt.xlabel("Number of trees")
-plt.ylabel("Score")
-plt.ylim(0.0, 1.1)
-lw = 2
-plt.plot(param_range, train_mean, label="Training score",
-                color="darkorange", lw=lw)
-plt.fill_between(param_range, train_mean - train_std,
-                train_mean + train_std, alpha=0.2,
-                color="darkorange", lw=lw)
-plt.plot(param_range, test_mean, label="Cross-validation score",
-                color="navy", lw=lw)
-plt.fill_between(param_range, test_mean - test_std,
-                test_mean + test_std, alpha=0.2,
-                color="navy", lw=lw)
-plt.legend(loc="best")
-plt.show()
+# Plot a bar graph containing following values
+
+# 1. Accuracy
+# 2. Name
+
+import  matplotlib.pyplot  as  plt
+name = ["Logistic Regression", "Decision Tree", "Random Forest", "GradientBoostingClassifier"]
+accuracy = [0.96, 0.95, 0.97, 0.98]
+
+plt.bar(name, accuracy, color ='maroon', width = 0.4)
+
 
 
 
