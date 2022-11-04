@@ -5,7 +5,6 @@ import streamlit as st
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.express as px
 
 df = pd.read_csv("data.csv")
 # loading in the model to predict on the data
